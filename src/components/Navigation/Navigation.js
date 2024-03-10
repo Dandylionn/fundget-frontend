@@ -17,7 +17,11 @@ const Navigation = ({ active, setActive }) => {
       <ul className="menu-items">
         {menuItems.map((item) => {
           return (
-            <li key={item.id} onClick={() => setActive(item.id)}>
+            <li
+              key={item.id}
+              onClick={() => setActive(item.id)}
+              className={active === item.id ? "active" : ""}
+            >
               {item.icon}
               <span>{item.title}</span>
             </li>
