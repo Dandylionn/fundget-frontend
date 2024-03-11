@@ -1,4 +1,5 @@
 import React from "react";
+import { dateFormat } from "../../utils/dateFormat";
 import styled from "styled-components";
 import Button from "../Button/Button";
 import {
@@ -93,7 +94,7 @@ const IncomeItem = ({
               {dollar} {amount}
             </p>
             <p>
-              {calender} {date}
+              {calender} {dateFormat(date)}
             </p>
             <p>
               {comment}

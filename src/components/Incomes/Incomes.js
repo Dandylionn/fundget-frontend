@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/Layouts";
 import { useGlobalContext } from "../../context/globalContext";
-import Form from "../Form/Form";
+import IncomeForm from "../Form/IncomeForm";
 import IncomeItem from "./IncomeItem";
 
 const Income = () => {
@@ -22,11 +22,11 @@ const Income = () => {
         </h2>
         <div className="income-content">
           <div className="form-container">
-            <Form />
+            <IncomeForm />
           </div>
           <div className="incomes">
             {incomes.map((income) => {
-              const { _id, title, amount, date, category, description } =
+              const { _id, title, amount, date, category, description, type } =
                 income;
               return (
                 <IncomeItem
@@ -36,7 +36,7 @@ const Income = () => {
                   description={description}
                   amount={amount}
                   date={date}
-                  // type={type}
+                  type={type}
                   category={category}
                   indicatorColor="var(--color-green)"
                   deleteItem={deleteIncome}

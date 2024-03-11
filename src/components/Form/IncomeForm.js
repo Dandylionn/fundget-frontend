@@ -6,7 +6,7 @@ import { useGlobalContext } from "../../context/globalContext";
 import { plus } from "../../utils/Icons";
 import Button from "../Button/Button";
 
-const Form = () => {
+const IncomeForm = () => {
   const { addIncome, getIncomes } = useGlobalContext();
   const [inputState, setInputState] = useState({
     title: "",
@@ -160,4 +160,4 @@ const FormStyled = styled.form`
     }
   }
 `;
-export default Form;
+export default IncomeForm;
