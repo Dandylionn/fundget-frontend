@@ -89,7 +89,9 @@ const IncomeItem = ({
         <h5>{title}</h5>
         <div className="inner-content">
           <div className="text">
-            <p>{dollar} 45</p>
+            <p>
+              {dollar} {amount}
+            </p>
             <p>
               {calender} {date}
             </p>
@@ -101,9 +103,9 @@ const IncomeItem = ({
           <div className="btn-con">
             <Button
               icon={trash}
-              bPad={"1rem"}
-              bRad={"50%"}
-              bg={"var(--primary-color"}
+              bPad={"0.5rem"}
+              bRad={"30%"}
+              bg={"var(--primary-color)"}
               color={"#fff"}
               iColor={"#fff"}
               hColor={"var(--color-green)"}
@@ -141,44 +143,53 @@ const IncomeItemStyled = styled.div`
       font-size: 2.6rem;
     }
   }
-  .content{
+  .btn-con button {
+    box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.06);
+    &:hover {
+      background: var(--color-red) !important;
+    }
+  }
+
+  .content {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: .2rem;
-    h5{
-        font-size: 1.3rem;
-        padding-left: 2rem;
-        position: relative;
-        &::before{
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: .8rem;
-            height: .8rem;
-            border-radius: 50%;
-            background: ${(props) => props.indicator};
-        }
+    gap: 0.2rem;
+    h5 {
+      font-size: 1.3rem;
+      padding-left: 2rem;
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0.8rem;
+        height: 0.8rem;
+        border-radius: 50%;
+        background: ${(props) => props.indicator};
+      }
     }
-    .inner-content{
+
+    .inner-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .text {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        .text{
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            p{
-                display: flex;
-                align-items: center;
-                gap: 0.5rem;
-                color: var(--primary-color);
-                opacity: 0.8;
-            }
+        gap: 1rem;
+        p {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          color: var(--primary-color);
+          opacity: 0.8;
         }
+      }
     }
+  }
 `;
 
 export default IncomeItem;
