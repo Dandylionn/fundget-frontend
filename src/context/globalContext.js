@@ -14,8 +14,8 @@ export const GlobalProvider = ({ children }) => {
   const addIncome = async (income) => {
     const response = await axios
       .post(`${BASE_URL}add-income`, income)
-      .catch((err) => {
-        setError(err.response);
+      .catch((error) => {
+        setError(error.response.data.message);
       });
     getIncomes();
   };
@@ -43,8 +43,8 @@ export const GlobalProvider = ({ children }) => {
   const addExpense = async (expense) => {
     const response = await axios
       .post(`${BASE_URL}add-expense`, expense)
-      .catch((err) => {
-        setError(err.response);
+      .catch((error) => {
+        setError(error.response.data.message);
       });
     getExpenses();
   };
@@ -77,7 +77,7 @@ export const GlobalProvider = ({ children }) => {
     history.sort((a, b) => {
       return new Date(b.createdAt) - new Date(a.createdAt);
     });
-    return history;
+    return history.slice(0, 5);
   };
 
   return (
@@ -95,6 +95,8 @@ export const GlobalProvider = ({ children }) => {
         totalExpense,
         totalBalance,
         transactionHistory,
+        error,
+        setError,
       }}
     >
       {children}
